@@ -196,7 +196,7 @@ Everything stated on the site is sourced. Nothing was invented.
 | Established 2008 · 5.0 from 24 ratings | Justdial listing |
 | 8 classrooms · one teacher per subject · practice-based · structured notes · revision batches | Instagram [@i_quest_learning_center](https://www.instagram.com/i_quest_learning_center/) |
 | Class 7–10 timetables, period times, subjects, Punjabi, Mon–Sat | The centre's own signed timetable documents |
-| Classes 1–10, competitive prep, CBSE / ICSE / IGCSE / IB, online for Classes 8–10 | Confirmed by the client |
+| All subjects Classes 1–10, Mathematics Classes 11–12, competitive prep, CBSE / ICSE / IGCSE / IB, online for Classes 8–10 | Confirmed by the client |
 | Address, phone numbers, hours | Justdial + client |
 | Founder names, roles and degrees | Client |
 
