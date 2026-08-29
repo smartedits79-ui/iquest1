@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Uncomment once a custom domain is connected:
-# Sitemap: https://yourdomain.in/sitemap.xml
+Sitemap: https://iquest1.vercel.app/sitemap.xml
