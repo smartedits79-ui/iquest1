@@ -77,6 +77,7 @@ Then open <http://localhost:4331>.
 | Phone / WhatsApp numbers | `assets/js/main.js` → `CONFIG`, **and** the `tel:` and `wa.me` links in `index.html` |
 | Opening hours and the live badge | `assets/js/main.js` → `CONFIG.hours`, **and** the `.hours` table in `index.html` |
 | Timetables | `index.html` → the four `<table class="tt">` blocks |
+| Instagram reels | `index.html` → the `#reels` section, one `<div class="reel">` per clip |
 | Period times | `assets/js/main.js` → `CONFIG.periods`, **and** the `<thead>` of each timetable |
 | Classes, subjects, boards | `index.html` → the `.plan__row` blocks |
 | Founder bios and degrees | `index.html` → the `.person` blocks |
@@ -94,6 +95,30 @@ All time logic runs in **Asia/Kolkata**, never the visitor's timezone. A parent 
 from Dubai still sees your real hours.
 
 Currently set to **Monday–Saturday, 3:30–8:00 PM, closed Sunday**.
+
+---
+
+## Adding an Instagram reel
+
+In Instagram, open the reel → **Share → Copy link**. You get something like:
+
+```
+https://www.instagram.com/reel/DbIPSW1ioQd/?igsh=...
+```
+
+Take the code between `/reel/` and the next slash — here, `DbIPSW1ioQd` — and paste a new
+block into the `#reels` section of `index.html`, above the "More on Instagram" card:
+
+```html
+<div class="reel">
+  <iframe src="https://www.instagram.com/reel/PASTE_CODE_HERE/embed/" loading="lazy"
+          title="iQuest Learning Center reel" scrolling="no"
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+```
+
+To remove a reel, delete its block. The grid reflows on its own. Reels only load when a
+visitor scrolls to them, and there is no Instagram tracking script on the page.
 
 ---
 

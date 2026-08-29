@@ -609,6 +609,38 @@ body::after{
 .proof__list svg{width:20px;height:20px;color:var(--amber);flex:none;margin-top:.28rem}
 .proof__list b{color:var(--chalk);font-weight:600}
 
+/* ---------- 16b. Instagram reels ----------
+   Real embeds, lazy-loaded so they cost nothing until the visitor scrolls here.
+   No Instagram script on the page — the /embed/ endpoint is a plain iframe. */
+/* Columns are capped at phone width — a reel blown up to 600px reads as a
+   mistake, and Instagram's own player is designed for this size. */
+.reels__grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(276px,340px));
+  gap:clamp(1rem,2.5vw,1.75rem);align-items:start;justify-content:start;
+}
+.reel{
+  position:relative;aspect-ratio:9/15.4;border:1px solid var(--line-2);border-radius:var(--r3);
+  overflow:hidden;background:var(--surface);box-shadow:var(--shadow-2);
+  transition:transform .5s var(--pull),box-shadow .5s var(--pull),border-color .3s;
+}
+.reel:hover{transform:translateY(-4px);border-color:rgba(249,161,27,.42)}
+.reel iframe{width:100%;height:100%;border:0;display:block;background:var(--surface)}
+
+/* the last tile is an invitation, not a video */
+.reel--follow{
+  display:grid;align-content:center;justify-items:start;gap:var(--s3);
+  padding:clamp(1.5rem,3.4vw,2.25rem);
+  background:linear-gradient(165deg,rgba(28,44,59,.92),rgba(14,24,37,.92));
+}
+.reel--follow h3{font-size:clamp(1.3rem,1.1rem + .7vw,1.65rem)}
+.reel--follow p{font-size:.95rem}
+.reel--follow .ig{
+  width:52px;height:52px;border-radius:15px;display:grid;place-items:center;
+  background:linear-gradient(140deg,#F9A11B,#DC3F16 55%,#C1358F);color:#fff;
+}
+.reel--follow .ig svg{width:26px;height:26px}
+.reels__note{margin-top:var(--s4);font-size:.88rem;color:var(--chalk-3)}
+
 /* ---------- 17. Visit ---------- */
 .visit__grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(2rem,5vw,3.5rem);align-items:start}
 .info{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r3);overflow:hidden}
