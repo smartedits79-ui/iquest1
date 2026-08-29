@@ -34,6 +34,25 @@ that posts straight to your inbox with no email app involved.
 
 ---
 
+## The standalone enquiry form — `form.html`
+
+A second, completely separate page, live at **/form**.
+
+It is one self-contained file. The logo is embedded in it as a data URI, and the
+styles and script are inline, so it loads **nothing** from `assets/`. You can host it
+on another domain, email it to somebody, or open it straight off a USB stick and it
+still works. Editing it cannot affect the main site, and editing the main site cannot
+affect it.
+
+`index.html` does not link to it. It carries `noindex`, so Google will not list it
+separately and split your search results — remove that meta tag if you want it found.
+
+To change the email, phone or hours on that page, edit the `CONFIG` block near the
+bottom of `form.html`. **Those values are separate from the main site's** — if you
+change a number, change it in both files.
+
+---
+
 ## Deploy
 
 ### Option A — GitHub → Vercel (recommended)
@@ -78,6 +97,9 @@ Then open <http://localhost:4331>.
 | Opening hours and the live badge | `assets/js/main.js` → `CONFIG.hours`, **and** the `.hours` table in `index.html` |
 | Timetables | `index.html` → the four `<table class="tt">` blocks |
 | Instagram reels | `index.html` → the `#reels` section, one `<div class="reel">` per clip |
+| The creed band and pull-quotes | `index.html` → `.creed` section and the `.pullquote` blocks |
+| The standalone form page | `form.html` → its own `CONFIG` block, separate from the main site |
+| After editing CSS or JS | bump `?v=` on the `style.css` and `main.js` links in `index.html` |
 | Period times | `assets/js/main.js` → `CONFIG.periods`, **and** the `<thead>` of each timetable |
 | Classes, subjects, boards | `index.html` → the `.plan__row` blocks |
 | Founder bios and degrees | `index.html` → the `.person` blocks |
