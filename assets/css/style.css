@@ -454,6 +454,47 @@ body::after{
 .step h3{font-size:clamp(1.25rem,1.05rem + .6vw,1.55rem);margin-bottom:.5rem}
 .step p{max-width:56ch}
 
+/* ---------- 13b. Creed band — the belief, said once, in the centre's own voice ---------- */
+.creed{
+  position:relative;overflow:hidden;padding-block:clamp(3.5rem,8vw,6.5rem);
+  border-block:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(22,35,47,.5),rgba(14,24,37,.2));
+}
+.creed__in{position:relative;z-index:1;max-width:44ch;margin-inline:auto;text-align:center}
+.creed__quote{
+  position:absolute;z-index:0;left:50%;top:clamp(-1.2rem,-2vw,-.6rem);translate:-50% 0;
+  width:clamp(96px,15vw,168px);height:auto;opacity:.13;pointer-events:none;
+}
+.creed__quote path{fill:var(--amber)}
+.creed__line{
+  position:relative;z-index:1;font-family:var(--f-display);font-weight:800;
+  font-size:clamp(1.75rem,1.1rem + 2.6vw,3rem);line-height:1.14;letter-spacing:-.04em;
+  color:var(--chalk);text-wrap:balance;
+}
+.creed__line em{font-style:normal;color:var(--amber)}
+.creed__sub{margin-top:var(--s3);font-size:1.02em;color:var(--chalk-2)}
+.creed__by{
+  display:inline-flex;align-items:center;gap:.6rem;margin-top:var(--s4);
+  font-family:var(--f-display);font-weight:600;font-size:.8rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--chalk-3);
+}
+.creed__by::before{content:"";width:26px;height:1px;background:var(--line-2)}
+
+/* ---------- 13c. Pull-quote — a quieter aside inside a section ---------- */
+.pullquote{
+  position:relative;margin-top:var(--s5);padding:clamp(1.25rem,3vw,1.75rem) 0 0;
+  border-top:1px solid var(--line);max-width:46ch;
+}
+.pullquote p{
+  font-family:var(--f-display);font-weight:600;font-size:clamp(1.1rem,1rem + .55vw,1.35rem);
+  line-height:1.36;letter-spacing:-.02em;color:var(--chalk);
+}
+.pullquote p em{font-style:normal;color:var(--amber)}
+.pullquote cite{
+  display:block;margin-top:.7rem;font-style:normal;font-size:.82rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--chalk-3);font-weight:600;
+}
+
 /* ---------- 14. Programmes ---------- */
 .legend{display:flex;flex-wrap:wrap;gap:.55rem;margin-bottom:var(--s5)}
 .chip{
