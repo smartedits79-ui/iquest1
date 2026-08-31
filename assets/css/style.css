@@ -638,9 +638,10 @@ body::after{
   width:66%;height:30px;border-radius:50%;pointer-events:none;
   background:radial-gradient(ellipse at center,rgba(3,8,14,.6),rgba(3,8,14,0) 72%);
   filter:blur(5px);
-  transition:width .6s var(--pull),opacity .6s var(--pull);
+  /* scaleX, not width — a width transition relayouts on every frame */
+  transition:transform .6s var(--pull),opacity .6s var(--pull);
 }
-.person:hover .person__floor{width:60%;opacity:.85}
+.person:hover .person__floor{transform:translateX(-50%) scaleX(.9);opacity:.85}
 
 /* wrapper carries the idle drift so it never fights the entrance transform */
 .person__float{position:relative;z-index:2;height:var(--stage);display:grid;align-items:end;justify-items:center}
