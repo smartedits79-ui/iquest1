@@ -604,28 +604,68 @@ body::after{
 .tt__foot{margin-top:var(--s4);font-size:.94rem;color:var(--chalk-2);display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
 .hours__off th,.hours__off td{color:var(--chalk-3)!important;font-weight:500!important}
 
-/* ---------- 15. Faculty ---------- */
+/* ---------- 15. Faculty ----------
+   Cut-out portraits on a dark ground need three things or they read as stickers:
+   a spotlight behind them, a shadow on the floor, and a soft fade where the crop
+   ends. All three are here; the photo itself is never given a hard edge. */
 .faculty__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(1.25rem,3vw,2rem)}
 .person{
-  position:relative;display:grid;gap:var(--s3);padding:clamp(1.6rem,3.4vw,2.4rem);
-  border:1px solid var(--line);border-radius:var(--r3);
+  --stage:clamp(280px,34vw,375px);
+  position:relative;display:grid;align-content:start;padding:0;
+  border:1px solid var(--line);border-radius:var(--r3);overflow:hidden;
   background:linear-gradient(165deg,rgba(28,44,59,.9),rgba(14,24,37,.9));
-  overflow:hidden;transition:transform .6s var(--pull),border-color .4s,box-shadow .6s var(--pull);
-}
-.person::after{
-  content:"";position:absolute;inset:auto -30% -55% auto;width:280px;height:280px;border-radius:50%;
-  background:radial-gradient(circle,rgba(242,98,42,.2),transparent 66%);
-  opacity:0;transition:opacity .6s var(--pull);
+  transition:transform .6s var(--pull),border-color .4s,box-shadow .6s var(--pull);
 }
 .person:hover{transform:translateY(-4px);border-color:var(--line-2);box-shadow:var(--shadow-2)}
-.person:hover::after{opacity:1}
-.person__top{display:flex;align-items:center;gap:var(--s3)}
-.person__badge{
-  position:relative;width:74px;height:74px;flex:none;border-radius:20px;display:grid;place-items:center;
-  background:linear-gradient(150deg,var(--amber),var(--ember));color:#170A03;
-  font-family:var(--f-display);font-weight:900;font-size:1.55rem;letter-spacing:-.05em;
-  box-shadow:0 8px 24px rgba(226,84,24,.34);
+
+/* the stage the portrait stands on */
+.person__stage{
+  position:relative;height:var(--stage);
+  display:grid;place-items:end center;overflow:hidden;
+  background:linear-gradient(180deg,rgba(35,54,74,.55),rgba(14,24,37,0) 82%);
 }
+.person__halo{
+  position:absolute;left:50%;top:10%;transform:translateX(-50%);
+  width:min(86%,290px);aspect-ratio:1;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(249,161,27,.34),rgba(242,98,42,.13) 48%,transparent 71%);
+  filter:blur(4px);
+  transition:opacity .6s var(--pull),transform .6s var(--pull);
+}
+.person:hover .person__halo{transform:translateX(-50%) scale(1.08)}
+/* the shadow that puts them on the ground rather than in mid-air */
+.person__floor{
+  position:absolute;bottom:6px;left:50%;transform:translateX(-50%);
+  width:66%;height:30px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(ellipse at center,rgba(3,8,14,.6),rgba(3,8,14,0) 72%);
+  filter:blur(5px);
+  transition:width .6s var(--pull),opacity .6s var(--pull);
+}
+.person:hover .person__floor{width:60%;opacity:.85}
+
+/* wrapper carries the idle drift so it never fights the entrance transform */
+.person__float{position:relative;z-index:2;height:var(--stage);display:grid;align-items:end;justify-items:center}
+.person__photo{
+  height:var(--stage);width:auto;max-width:100%;object-fit:contain;object-position:bottom center;
+  filter:drop-shadow(0 16px 26px rgba(3,8,14,.5));
+  /* the crop at the feet dissolves instead of ending in a line */
+  -webkit-mask-image:linear-gradient(180deg,#000 74%,rgba(0,0,0,.4) 91%,transparent 100%);
+          mask-image:linear-gradient(180deg,#000 74%,rgba(0,0,0,.4) 91%,transparent 100%);
+  opacity:0;transform:translateY(26px) scale(.97);
+  transition:opacity .85s var(--pull) .12s,transform .95s var(--pull) .12s;
+}
+.person.in .person__photo{opacity:1;transform:none}
+.person:hover .person__photo{transform:translateY(-6px) scale(1.02)}
+
+@media (prefers-reduced-motion:no-preference){
+  .person.in .person__float{animation:personFloat 7s ease-in-out 1.1s infinite alternate}
+  .person:nth-child(2).in .person__float{animation-delay:1.9s;animation-duration:8s}
+  @keyframes personFloat{from{transform:translateY(0)}to{transform:translateY(-9px)}}
+}
+@media (prefers-reduced-motion:reduce){
+  .person__photo{opacity:1;transform:none;transition:none}
+}
+
+.person__body{display:grid;gap:var(--s3);padding:clamp(1.4rem,3vw,2rem) clamp(1.5rem,3.4vw,2.25rem) clamp(1.6rem,3.4vw,2.4rem)}
 .person h3{font-size:clamp(1.35rem,1.15rem + .6vw,1.7rem)}
 .person__role{margin-top:.3rem;font-family:var(--f-display);font-weight:600;font-size:.9rem;color:var(--amber)}
 .person__quals{display:flex;flex-wrap:wrap;gap:.4rem}
@@ -633,7 +673,6 @@ body::after{
   padding:.3rem .68rem;border-radius:7px;border:1px solid var(--line-2);
   font-size:.8rem;font-weight:600;color:var(--chalk-2);font-family:var(--f-display);letter-spacing:.02em;
 }
-.person p{position:relative;z-index:1}
 
 /* ---------- 16. Proof ---------- */
 .proof{position:relative;overflow:hidden;background:linear-gradient(180deg,transparent,rgba(22,35,47,.5))}

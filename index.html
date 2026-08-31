@@ -45,7 +45,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap">
 <!-- Bump ?v= whenever you edit the CSS or JS. It gives the file a new URL, so
      browsers and the CDN fetch it immediately instead of serving a cached copy. -->
-<link rel="stylesheet" href="assets/css/style.css?v=7">
+<link rel="stylesheet" href="assets/css/style.css?v=8">
 
 <script type="application/ld+json">
 {
@@ -95,8 +95,8 @@
         "opens":"15:30","closes":"20:00"
       }],
       "founder":[
-        {"@type":"Person","name":"Dheeraj Bagga","jobTitle":"Director and Mathematics Teacher"},
-        {"@type":"Person","name":"Aanchal Bagga","jobTitle":"Administrative Head"}
+        {"@type":"Person","name":"Dheeraj Bagga","jobTitle":"Director and Mathematics Teacher","image":"https://iquest1.vercel.app/assets/img/dheeraj-bagga.png"},
+        {"@type":"Person","name":"Aanchal Bagga","jobTitle":"Administrative Head","image":"https://iquest1.vercel.app/assets/img/aanchal-bagga.png"}
       ],
       "sameAs":[
         "https://www.instagram.com/i_quest_learning_center/",
@@ -605,27 +605,43 @@
 
     <div class="faculty__grid">
       <article class="person" data-anim="pull">
-        <div class="person__top">
-          <span class="person__badge" aria-hidden="true">DB</span>
+        <div class="person__stage">
+          <span class="person__halo" aria-hidden="true"></span>
+          <span class="person__floor" aria-hidden="true"></span>
+          <span class="person__float">
+            <img class="person__photo" src="assets/img/dheeraj-bagga.png"
+                 alt="Dheeraj Bagga, Director and Mathematics teacher at iQuest Learning Center, Yamuna Nagar"
+                 width="433" height="577" loading="lazy" decoding="async">
+          </span>
+        </div>
+        <div class="person__body">
           <div>
             <h3>Dheeraj Bagga</h3>
             <p class="person__role">Director &amp; Mathematics Teacher</p>
           </div>
+          <ul class="person__quals"><li>M.Tech</li><li>B.Tech</li><li>B.Ed</li></ul>
+          <p>Founded iQuest in 2008 and still teaches maths himself. An engineer by training and a teacher by choice — which is why maths here is taught as something to be understood and then practised, never memorised.</p>
         </div>
-        <ul class="person__quals"><li>M.Tech</li><li>B.Tech</li><li>B.Ed</li></ul>
-        <p>Founded iQuest in 2008 and still teaches maths himself. An engineer by training and a teacher by choice, which is why maths here is taught as something to be understood and then practised, never memorised.</p>
       </article>
 
       <article class="person" data-anim="pull" style="--d:110ms">
-        <div class="person__top">
-          <span class="person__badge" aria-hidden="true">AB</span>
+        <div class="person__stage">
+          <span class="person__halo" aria-hidden="true"></span>
+          <span class="person__floor" aria-hidden="true"></span>
+          <span class="person__float">
+            <img class="person__photo" src="assets/img/aanchal-bagga.png"
+                 alt="Aanchal Bagga, Administrative Head at iQuest Learning Center, Yamuna Nagar"
+                 width="433" height="577" loading="lazy" decoding="async">
+          </span>
+        </div>
+        <div class="person__body">
           <div>
             <h3>Aanchal Bagga</h3>
             <p class="person__role">Administrative Head</p>
           </div>
+          <ul class="person__quals"><li>M.Sc</li><li>B.Sc</li><li>B.Ed</li></ul>
+          <p>Runs admissions, batches and the timetable across all eight classrooms. If you are enquiring about a seat, a schedule or your child's attendance, this is who sorts it out.</p>
         </div>
-        <ul class="person__quals"><li>M.Sc</li><li>B.Sc</li><li>B.Ed</li></ul>
-        <p>Runs admissions, batches and the timetable across all eight classrooms. If you are enquiring about a seat, a schedule or your child's attendance, this is who sorts it out.</p>
       </article>
     </div>
   </div>
@@ -910,6 +926,6 @@
 
 </div><!-- /#app -->
 
-<script src="assets/js/main.js?v=7" defer></script>
+<script src="assets/js/main.js?v=8" defer></script>
 </body>
 </html>
