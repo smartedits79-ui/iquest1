@@ -711,7 +711,7 @@ body::after{
 /* Columns are capped at phone width — a reel blown up to 600px reads as a
    mistake, and Instagram's own player is designed for this size. */
 .reels__grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(276px,340px));
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(276px,100%),340px));
   gap:clamp(1rem,2.5vw,1.75rem);align-items:start;justify-content:start;
 }
 .reel{
